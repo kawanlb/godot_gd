@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd1sinrjru78t"]
+
+[ext_resource type="PackedScene" uid="uid://bjgoqh2pv3i1u" path="res://Scenes/Characters/Gfx/Warrior.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ckv83y6g81tg4" path="res://Scenes/Backgrounds/Forest/forest_background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://udiymmmbpi3g" path="res://Scenes/TileMaps/Forest/Tiles.tscn" id="3_8gbba"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Tiles" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(-28, -5)
+
+[node name="WarriorNode" parent="." instance=ExtResource("1_bo1nx")]
+position = Vector2(61, 632)
+
+[node name="ForestBackground" parent="." instance=ExtResource("2_8gbba")]
