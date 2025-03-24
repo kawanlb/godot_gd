@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd1sinrjru78t"]
+[gd_scene load_steps=5 format=3 uid="uid://bd1sinrjru78t"]
 
 [ext_resource type="PackedScene" uid="uid://bjgoqh2pv3i1u" path="res://Scenes/Characters/Gfx/Warrior.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ckv83y6g81tg4" path="res://Scenes/Backgrounds/Forest/forest_background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://udiymmmbpi3g" path="res://Scenes/TileMaps/Forest/Tiles.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bdh5b2oe8xvsk" path="res://Scenes/Interactables/Destructive/crate.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D"]
 
@@ -10,6 +11,25 @@
 position = Vector2(-28, -5)
 
 [node name="WarriorNode" parent="." instance=ExtResource("1_bo1nx")]
-position = Vector2(61, 632)
+position = Vector2(107, 336)
 
 [node name="ForestBackground" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(-42, 54)
+
+[node name="Crate" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(1223, 107)
+
+[node name="Crate2" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(1366, 108)
+
+[node name="Crate3" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(1230, 343)
+
+[node name="Crate5" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(2484, 406)
+
+[node name="Crate7" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(2436, 402)
+
+[node name="Crate8" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(1230, 373)

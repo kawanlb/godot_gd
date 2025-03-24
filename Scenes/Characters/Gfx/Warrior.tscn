@@ -185,7 +185,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"WarriorAttack",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,10 +275,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gyvf"]
-size = Vector2(48, 84)
+size = Vector2(40, 64)
 
 [node name="WarriorNode" type="CharacterBody2D"]
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_0pk43")
 
 [node name="WarriorCollisionShape" type="CollisionShape2D" parent="."]
@@ -291,11 +291,14 @@ debug_color = Color(0.585609, 0.54969, 0, 0.42)
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pscbo")
-animation = &"WarriorIdle"
+animation = &"WarriorAttack"
 autoplay = "WarriorIdle"
+frame = 11
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 0)
+zoom = Vector2(1.2, 1.2)
 limit_left = -50
 limit_top = 0
 limit_bottom = 720
@@ -303,11 +306,12 @@ limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="WarriorAttackArea" type="Area2D" parent="."]
-visible = false
+[node name="WarriorSword" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
 
-[node name="WarriorAttackCollisionShape" type="CollisionShape2D" parent="WarriorAttackArea"]
-position = Vector2(32, 2)
+[node name="WarriorAttackCollisionShape" type="CollisionShape2D" parent="WarriorSword"]
+position = Vector2(28, 0)
 shape = SubResource("RectangleShape2D_3gyvf")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

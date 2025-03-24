@@ -9,7 +9,7 @@ public partial class Warrior : CharacterBody2D
     private const float Deceleration = 800.0f;
 
     private AnimatedSprite2D WarriorAnimations;
-    private Area2D WarriorAttackArea;
+    private Area2D WarriorSword;
     private CollisionShape2D WarriorAttackCollisionShape;
     private CollisionShape2D WarriorCollisionShape;
     private Vector2 direction;
@@ -20,8 +20,8 @@ public partial class Warrior : CharacterBody2D
     public override void _Ready()
     {
         WarriorAnimations = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        WarriorAttackArea = GetNode<Area2D>("WarriorAttackArea");
-        WarriorAttackCollisionShape = WarriorAttackArea.GetNode<CollisionShape2D>("WarriorAttackCollisionShape");
+        WarriorSword = GetNode<Area2D>("WarriorSword");
+        WarriorAttackCollisionShape = WarriorSword.GetNode<CollisionShape2D>("WarriorAttackCollisionShape");
         WarriorCollisionShape = GetNode<CollisionShape2D>("WarriorCollisionShape");
         WarriorAttackCollisionShape.Disabled = true;
         WarriorAnimations.Play("WarriorIdle");
@@ -54,7 +54,7 @@ public partial class Warrior : CharacterBody2D
             {
                 velocity.X = direction.X * Speed;
                 WarriorAnimations.FlipH = direction.X < 0;
-                WarriorAttackArea.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
+                WarriorSword.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
 
                 if (direction.X < 0)
                 {
@@ -91,7 +91,7 @@ public partial class Warrior : CharacterBody2D
                     WarriorAnimations.Play("WarriorRunning");
                 }
                 WarriorAnimations.FlipH = direction.X < 0;
-                WarriorAttackArea.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
+                WarriorSword.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
 
                 if (direction.X < 0)
                 {
@@ -116,6 +116,8 @@ public partial class Warrior : CharacterBody2D
                 isAttacking = true;
                 WarriorAttackCollisionShape.Disabled = false;
                 WarriorAnimations.Play("WarriorAttack");
+                velocity.X = 0; // Impede o deslizamento ao atacar
+
             }
         }
 
