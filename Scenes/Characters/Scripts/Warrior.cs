@@ -11,18 +11,22 @@ public partial class Warrior : CharacterBody2D
     private AnimatedSprite2D WarriorAnimations;
     private Area2D WarriorAttackArea;
     private CollisionShape2D WarriorAttackCollisionShape;
+    private CollisionShape2D WarriorCollisionShape;
     private Vector2 direction;
     private bool isAttacking = false;
     private bool isInAttackAnimation = false;
+    private float initialCollisionShapeOffsetX; // Store initial X offset
 
     public override void _Ready()
     {
         WarriorAnimations = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         WarriorAttackArea = GetNode<Area2D>("WarriorAttackArea");
         WarriorAttackCollisionShape = WarriorAttackArea.GetNode<CollisionShape2D>("WarriorAttackCollisionShape");
+        WarriorCollisionShape = GetNode<CollisionShape2D>("WarriorCollisionShape");
         WarriorAttackCollisionShape.Disabled = true;
         WarriorAnimations.Play("WarriorIdle");
         WarriorAnimations.AnimationFinished += _on_AttackAnimationFinished;
+        initialCollisionShapeOffsetX = WarriorCollisionShape.Position.X; // Store initial offset
     }
 
     public override void _PhysicsProcess(double delta)
@@ -50,6 +54,16 @@ public partial class Warrior : CharacterBody2D
             {
                 velocity.X = direction.X * Speed;
                 WarriorAnimations.FlipH = direction.X < 0;
+                WarriorAttackArea.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
+
+                if (direction.X < 0)
+                {
+                    WarriorCollisionShape.Position = new Vector2(-initialCollisionShapeOffsetX, WarriorCollisionShape.Position.Y);
+                }
+                else
+                {
+                    WarriorCollisionShape.Position = new Vector2(initialCollisionShapeOffsetX, WarriorCollisionShape.Position.Y);
+                }
             }
             else
             {
@@ -77,6 +91,16 @@ public partial class Warrior : CharacterBody2D
                     WarriorAnimations.Play("WarriorRunning");
                 }
                 WarriorAnimations.FlipH = direction.X < 0;
+                WarriorAttackArea.Scale = new Vector2(direction.X < 0 ? -1 : 1, 1);
+
+                if (direction.X < 0)
+                {
+                    WarriorCollisionShape.Position = new Vector2(-initialCollisionShapeOffsetX, WarriorCollisionShape.Position.Y);
+                }
+                else
+                {
+                    WarriorCollisionShape.Position = new Vector2(initialCollisionShapeOffsetX, WarriorCollisionShape.Position.Y);
+                }
             }
             else if (!isAttacking)
             {
