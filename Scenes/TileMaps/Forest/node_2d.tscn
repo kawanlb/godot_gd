@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx663fi8ix3ke"]
+
+[ext_resource type="Texture2D" uid="uid://kjfcvgjtayrf" path="res://Scenes/Backgrounds/Forest/Layer_0007_Lights.png" id="1_j2wod"]
+
+[node name="Node2D" type="PointLight2D"]
+energy = 16.0
+texture = ExtResource("1_j2wod")

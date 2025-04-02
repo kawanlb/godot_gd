@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Caipora"
 run/main_scene="uid://bjgoqh2pv3i1u"
-config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 config/size/viewport_height=720
 

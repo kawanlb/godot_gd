@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdh5b2oe8xvsk"]
 
 [ext_resource type="Texture2D" uid="uid://csbff3fw207d3" path="res://Scenes/Interactables/Destructive/Crate-animated.png" id="1_1ooft"]
-[ext_resource type="Script" uid="uid://bkvrtyti5skna" path="res://Scenes/Interactables/Scripts/Crate.cs" id="1_bhv78"]
+[ext_resource type="Script" uid="uid://cvi7v7fhfhfe6" path="res://Scenes/Interactables/Scripts/Crate.gd" id="1_bhv78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhv78"]
 size = Vector2(33, 30)
@@ -135,6 +135,7 @@ radius = 20.0998
 
 [node name="Crate" type="StaticBody2D"]
 collision_layer = 2
+collision_mask = 129
 script = ExtResource("1_bhv78")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

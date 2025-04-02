@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckv83y6g81tg4"]
 
-[ext_resource type="Script" uid="uid://bnateer77f2hm" path="res://Scenes/Backgrounds/Forest/ForestBackground.cs" id="1_8oecq"]
+[ext_resource type="Script" uid="uid://dw0piaauftq1j" path="res://Scenes/Backgrounds/Forest/ForestBackground.gd" id="1_v48en"]
 [ext_resource type="Texture2D" uid="uid://ghowy4h4aydc" path="res://Scenes/Backgrounds/Forest/Layer_0011_0.png" id="2_v48en"]
 [ext_resource type="Texture2D" uid="uid://dt2xj4p3tf0hs" path="res://Scenes/Backgrounds/Forest/Layer_0010_1.png" id="3_gjch5"]
 [ext_resource type="Texture2D" uid="uid://wao1rxw5bhit" path="res://Scenes/Backgrounds/Forest/Layer_0009_2.png" id="4_mqdtr"]
@@ -16,7 +16,7 @@
 [node name="ForestBackground" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_8oecq")
+script = ExtResource("1_v48en")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)
