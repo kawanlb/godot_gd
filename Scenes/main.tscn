@@ -9,7 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Light" parent="." instance=ExtResource("1_kry3j")]
-position = Vector2(578, 164)
+position = Vector2(590, 164)
 
 [node name="Tiles" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(-28, -5)
